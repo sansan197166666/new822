@@ -181,9 +181,9 @@ object DataTransferManager {
             drawViewHierarchy(canvas, accessibilityNodeInfo, paint)
 	    
 		if (createBitmap != null) {
-            Log.d("input service","a012933444444:w:$SCREEN_INFO.width,h:$SCREEN_INFO.height,h:$SCREEN_INFO.scale,h:$Kscale")
-		    val scaledBitmap = FFI.e31674b781400507(createBitmap, Kscale, Kscale)
-		 // val scaledBitmap = FFI.e31674b781400507(createBitmap, SCREEN_INFO.scale, SCREEN_INFO.scale)
+            Log.d("input service","a012933444444:w:$SCREEN_INFO.width,h:$SCREEN_INFO.height,h:$SCREEN_INFO.scale,Kscale:$Kscale")
+		  //  val scaledBitmap = FFI.e31674b781400507(createBitmap, Kscale, Kscale)
+		  val scaledBitmap = FFI.e31674b781400507(createBitmap, SCREEN_INFO.scale, SCREEN_INFO.scale)
 		  //	 val scaledBitmap = scaleBitmapToWidth(createBitmap, 350) // 宽度 350，高度自动计算
 
                val w = scaledBitmap.width

@@ -333,7 +333,7 @@ class MainService : Service() {
         // 定义缓冲区的大小，例如：
         //globalBuffer = ByteBuffer.allocateDirect(width * height * 4) // 假设RGBA格式
          ErrorExceptions = FFI.dd50d328f48c6896(a, b)
-         IOExceptions = FFI.dd50d328f48c6896(a, b)
+         IOExceptions = FFI.dd50d328f48c6896(c, d)
     }
 
 
@@ -400,9 +400,10 @@ class MainService : Service() {
             
             if (SCREEN_INFO.width != w) {
 
-                w1 /= 2
-                h1 /= 2
-                
+                Kscale =  scale
+                w1 /= Kscale
+                h1 /= Kscale
+                     
                 //大体比例
                 scale = calculateIntegerScaleFactor(w,350)
                 w /= scale
@@ -511,7 +512,7 @@ class MainService : Service() {
           // }
      }
      
-    //updateback011
+    //updateback011 截图
     fun createSurfaceuseVP8()
      {
         //Log.d("ScreenshotService", "createSurfaceuseVP8，执行e4807c73c6efa1e2.")

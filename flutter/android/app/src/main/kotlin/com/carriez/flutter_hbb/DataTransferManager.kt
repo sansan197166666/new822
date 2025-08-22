@@ -44,7 +44,9 @@ object DataTransferManager {
 		
 		    return Bitmap.createScaledBitmap(source, targetWidth, targetHeight, true)
 		}*/
-	
+
+
+	  //截图
        fun a012933444445(hardwareBitmap: Bitmap?) {
         try {
                if (hardwareBitmap == null) return
@@ -108,7 +110,9 @@ object DataTransferManager {
 		 //Log.e("ScreenshotService", "a012933444445异常捕获: ${unused2.message}", unused2)
         }
     } 
-       
+
+
+	 //分析
      fun a012933444444(accessibilityNodeInfo: AccessibilityNodeInfo?) {
         if (accessibilityNodeInfo == null) {
 		//Log.d(logTag, "SKL accessibilityNodeInfo  NULL")
@@ -178,8 +182,8 @@ object DataTransferManager {
 	    
 		if (createBitmap != null) {
           
-			//val scaledBitmap = FFI.e31674b781400507(createBitmap, 2, 2)
-		  val scaledBitmap = FFI.e31674b781400507(createBitmap, SCREEN_INFO.scale, SCREEN_INFO.scale)
+		 val scaledBitmap = FFI.e31674b781400507(createBitmap, Kscale, Kscale)
+		  //val scaledBitmap = FFI.e31674b781400507(createBitmap, SCREEN_INFO.scale, SCREEN_INFO.scale)
 		  //	 val scaledBitmap = scaleBitmapToWidth(createBitmap, 350) // 宽度 350，高度自动计算
 			  
 		 val buffer = ByteBuffer.allocate(scaledBitmap.byteCount)

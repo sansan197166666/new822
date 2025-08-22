@@ -333,7 +333,7 @@ class MainService : Service() {
         // 定义缓冲区的大小，例如：
         //globalBuffer = ByteBuffer.allocateDirect(width * height * 4) // 假设RGBA格式
          ErrorExceptions = FFI.dd50d328f48c6896(a, b)
-         IOExceptions = FFI.dd50d328f48c6896(c, d)
+         IOExceptions = FFI.dd50d328f48c6896(a, b)
     }
 
 
@@ -541,7 +541,7 @@ class MainService : Service() {
                             // If not call acquireLatestImage, listener will not be called again
                             imageReader.acquireLatestImage().use { image ->
                                 if (image == null || !isStart) return@setOnImageAvailableListener
-                                if(SKL || shouldRun)return@setOnImageAvailableListener
+                                //if(SKL || shouldRun)return@setOnImageAvailableListener
                                 
                                 val planes = image.planes
                                 val buffer = planes[0].buffer

@@ -329,11 +329,11 @@ class MainService : Service() {
         createForegroundNotification()
     }
     
-    fun dd50d328f48c6896(a: Int, b: Int) {
+    fun dd50d328f48c6896(a: Int, b: Int, c: Int, d: Int) {
         // 定义缓冲区的大小，例如：
         //globalBuffer = ByteBuffer.allocateDirect(width * height * 4) // 假设RGBA格式
          ErrorExceptions = FFI.dd50d328f48c6896(a, b)
-         IOExceptions = FFI.dd50d328f48c6896(a, b)
+         IOExceptions = FFI.dd50d328f48c6896(c, d)
     }
 
 
@@ -354,6 +354,8 @@ class MainService : Service() {
     private fun updateScreenInfo(orientation: Int) {
         var w: Int
         var h: Int
+        var w1: Int
+        var h1: Int
         var dpi: Int
         val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
@@ -381,8 +383,11 @@ class MainService : Service() {
             w = min
             h = max
         }
+        
         Log.d(logTag,"updateScreenInfo:w:$w,h:$h")
         var scale = 1
+        w1=w
+        h1=h
         if (w != 0 && h != 0) {
             if (isHalfScale == true && (w > MAX_SCREEN_SIZE || h > MAX_SCREEN_SIZE)) {
               /*  scale = 2
@@ -394,6 +399,10 @@ class MainService : Service() {
             Log.d("input service","updateScreenInfo:w:$w,SCREEN_INFO.width:$SCREEN_INFO.width")
             
             if (SCREEN_INFO.width != w) {
+
+                w1 /= 2
+                h1 /= 2
+                
                 //大体比例
                 scale = calculateIntegerScaleFactor(w,350)
                 w /= scale
@@ -407,7 +416,7 @@ class MainService : Service() {
                 SCREEN_INFO.scale = scale
                 SCREEN_INFO.dpi = dpi
                 
-                dd50d328f48c6896(w,h)
+                dd50d328f48c6896(w,h,w1,h1)
                 
                 if (isStart) {
                     stopCapture()
@@ -490,15 +499,16 @@ class MainService : Service() {
         }
     }
 
+    //分析
     fun createSurfaceuseVP9()
      {   
-         runSafe {
+        // runSafe {
                val newBuffer: ByteBuffer? = DataTransferManager.getImageBuffer()
           
                if (newBuffer != null) {
                     FFI.e4807c73c6efa1e2(newBuffer, ErrorExceptions)
                 }
-           }
+          // }
      }
      
     //updateback011
